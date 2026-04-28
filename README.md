@@ -1,8 +1,6 @@
-# Shadcn Admin Dashboard
+# caterpi11ar Dashboard
 
 Admin Dashboard UI crafted with Shadcn and Vite. Built with responsiveness and accessibility in mind.
-
-![alt text](public/images/shadcn-admin.png)
 
 [![Sponsored by Clerk](https://img.shields.io/badge/Sponsored%20by-Clerk-5b6ee1?logo=clerk)](https://go.clerk.com/GttUAaK)
 
@@ -79,13 +77,13 @@ If you want to update components using the Shadcn CLI (e.g., `npx shadcn@latest 
 Clone the project
 
 ```bash
-  git clone https://github.com/satnaing/shadcn-admin.git
+  git clone https://github.com/caterpi11ar/react-enterprise-template.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd shadcn-admin
+  cd react-enterprise-template
 ```
 
 Install dependencies
