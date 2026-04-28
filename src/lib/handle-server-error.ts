@@ -1,8 +1,9 @@
 import { AxiosError } from 'axios'
 import { toast } from 'sonner'
+import { env } from '@/lib/env'
 
 export function handleServerError(error: unknown) {
-  if (import.meta.env.DEV) {
+  if (env.DEV) {
     console.log(error)
   }
 

@@ -8,13 +8,13 @@ import { ThemeSwitch } from '@/components/theme-switch'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
+import { env } from '@/lib/env'
 
 export const Route = createFileRoute('/clerk')({
   component: RouteComponent,
 })
 
-// Import your Publishable Key
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+const PUBLISHABLE_KEY = env.VITE_CLERK_PUBLISHABLE_KEY
 
 function RouteComponent() {
   if (!PUBLISHABLE_KEY) {

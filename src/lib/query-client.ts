@@ -4,6 +4,7 @@ import {
 } from '@tanstack/react-query'
 import { AxiosError } from 'axios'
 import { toast } from 'sonner'
+import { env } from '@/lib/env'
 import { handleServerError } from '@/lib/handle-server-error'
 import { useAuthStore } from '@/stores/auth-store'
 
@@ -22,12 +23,12 @@ export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: (failureCount, error) => {
-        if (import.meta.env.DEV)
+        if (env.DEV)
           console.log({ failureCount, error })
 
-        if (failureCount >= 0 && import.meta.env.DEV)
+        if (failureCount >= 0 && env.DEV)
           return false
-        if (failureCount > 3 && import.meta.env.PROD)
+        if (failureCount > 3 && env.PROD)
           return false
 
         return !(
@@ -35,7 +36,7 @@ export const queryClient = new QueryClient({
           && [401, 403].includes(error.response?.status ?? 0)
         )
       },
-      refetchOnWindowFocus: import.meta.env.PROD,
+      refetchOnWindowFocus: env.PROD,
       staleTime: 10 * 1000,
     },
     mutations: {
@@ -63,7 +64,7 @@ export const queryClient = new QueryClient({
         }
         if (error.response?.status === 500) {
           toast.error('Internal Server Error!')
-          if (import.meta.env.PROD && routerRef) {
+          if (env.PROD && routerRef) {
             routerRef.navigate({ to: '/500' })
           }
         }
