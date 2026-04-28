@@ -1,7 +1,7 @@
 {
-  "name": "shadcn-admin",
+  "name": "react-enterprise-template",
   "type": "module",
-  "version": "2.2.1",
+  "version": "0.0.1",
   "private": false,
   "scripts": {
     "dev": "vite",
