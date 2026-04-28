@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "format": "eslint --ext .ts,.tsx --fix  --cache .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@clerk/react": "^6.4.5",
@@ -55,19 +57,22 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^8.2.0",
+    "@commitlint/cli": "^20.5.2",
+    "@commitlint/config-conventional": "^20.5.0",
     "@faker-js/faker": "^10.4.0",
     "@rolldown/plugin-babel": "^0.2.3",
     "@tanstack/eslint-plugin-query": "^5.100.5",
     "@tanstack/react-query-devtools": "^5.100.5",
     "@tanstack/react-router-devtools": "^1.166.13",
     "@tanstack/router-plugin": "^1.167.28",
-    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^10.2.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "react-scan": "^0.5.3",
     "typescript": "~6.0.3",
     "vite": "^8.0.10"
