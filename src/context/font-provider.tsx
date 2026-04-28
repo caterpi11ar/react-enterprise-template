@@ -1,5 +1,6 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { fonts } from '@/config/fonts'
+import useGuaranteedContext from '@/hooks/use-guaranteed-context'
 import { getCookie, removeCookie, setCookie } from '@/lib/cookies'
 
 type Font = (typeof fonts)[number]
@@ -50,9 +51,5 @@ export function FontProvider({ children }: { children?: React.ReactNode }) {
 }
 
 export function useFont() {
-  const context = useContext(FontContext)
-  if (!context) {
-    throw new Error('useFont must be used within a FontProvider')
-  }
-  return context
+  return useGuaranteedContext(FontContext)
 }

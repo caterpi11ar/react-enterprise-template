@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useState } from 'react'
+import useGuaranteedContext from '@/hooks/use-guaranteed-context'
 import { getCookie, setCookie } from '@/lib/cookies'
 
 export type Collapsible = 'offcanvas' | 'icon' | 'none'
@@ -76,9 +77,5 @@ export function LayoutProvider({ children }: LayoutProviderProps) {
 
 // Define the hook for the provider
 export function useLayout() {
-  const context = useContext(LayoutContext)
-  if (!context) {
-    throw new Error('useLayout must be used within a LayoutProvider')
-  }
-  return context
+  return useGuaranteedContext(LayoutContext)
 }

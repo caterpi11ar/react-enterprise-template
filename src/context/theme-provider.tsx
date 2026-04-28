@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, useEffect, useMemo, useState } from 'react'
+import useGuaranteedContext from '@/hooks/use-guaranteed-context'
 import { getCookie, removeCookie, setCookie } from '@/lib/cookies'
 
 type Theme = 'dark' | 'light' | 'system'
@@ -22,15 +23,7 @@ interface ThemeProviderState {
   resetTheme: () => void
 }
 
-const initialState: ThemeProviderState = {
-  defaultTheme: DEFAULT_THEME,
-  resolvedTheme: 'light',
-  theme: DEFAULT_THEME,
-  setTheme: () => null,
-  resetTheme: () => null,
-}
-
-const ThemeContext = createContext<ThemeProviderState>(initialState)
+const ThemeContext = createContext<ThemeProviderState | null>(null)
 
 export function ThemeProvider({
   children,
@@ -101,10 +94,5 @@ export function ThemeProvider({
 }
 
 export function useTheme() {
-  const context = useContext(ThemeContext)
-
-  if (!context)
-    throw new Error('useTheme must be used within a ThemeProvider')
-
-  return context
+  return useGuaranteedContext(ThemeContext)
 }

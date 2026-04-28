@@ -10,6 +10,7 @@ import {
   useFormState,
 } from 'react-hook-form'
 import { Label } from '@/components/ui/label'
+import useGuaranteedContext from '@/hooks/use-guaranteed-context'
 import { cn } from '@/lib/utils'
 
 const Form = FormProvider
@@ -21,13 +22,9 @@ interface FormFieldContextValue<
   name: TName
 }
 
-const FormFieldContext = React.createContext<FormFieldContextValue>(
-  {} as FormFieldContextValue,
-)
+const FormFieldContext = React.createContext<FormFieldContextValue | null>(null)
 
-const FormItemContext = React.createContext<FormItemContextValue>(
-  {} as FormItemContextValue,
-)
+const FormItemContext = React.createContext<FormItemContextValue | null>(null)
 
 function FormField<
   TFieldValues extends FieldValues = FieldValues,
@@ -43,15 +40,11 @@ function FormField<
 }
 
 function useFormField() {
-  const fieldContext = React.useContext(FormFieldContext)
-  const itemContext = React.useContext(FormItemContext)
+  const fieldContext = useGuaranteedContext(FormFieldContext)
+  const itemContext = useGuaranteedContext(FormItemContext)
   const { getFieldState } = useFormContext()
   const formState = useFormState({ name: fieldContext.name })
   const fieldState = getFieldState(fieldContext.name, formState)
-
-  if (!fieldContext) {
-    throw new Error('useFormField should be used within <FormField>')
-  }
 
   const { id } = itemContext
 

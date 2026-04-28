@@ -1,5 +1,6 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { CommandMenu } from '@/components/command-menu'
+import useGuaranteedContext from '@/hooks/use-guaranteed-context'
 
 interface SearchContextType {
   open: boolean
@@ -35,11 +36,5 @@ export function SearchProvider({ children }: SearchProviderProps) {
 }
 
 export function useSearch() {
-  const searchContext = useContext(SearchContext)
-
-  if (!searchContext) {
-    throw new Error('useSearch has to be used within SearchProvider')
-  }
-
-  return searchContext
+  return useGuaranteedContext(SearchContext)
 }

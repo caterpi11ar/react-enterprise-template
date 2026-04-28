@@ -6,7 +6,7 @@ export default function useGuaranteedContext<T>(
   debugContextName?: string,
 ): T {
   const context = useContext(contextType)
-  if (context == undefined) {
+  if (context === null) {
     throw new Error(
       `useGuaranteedContext got null for contextType${debugContextName != undefined ? `: '${debugContextName}'` : ''
       }`,

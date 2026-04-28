@@ -1,6 +1,6 @@
 import { DirectionProvider as RdxDirProvider } from '@radix-ui/react-direction'
 import { createContext, useEffect, useState } from 'react'
-import useGuaranteedContext from '@/components/useGuaranteedContext'
+import useGuaranteedContext from '@/hooks/use-guaranteed-context'
 import { getCookie, removeCookie, setCookie } from '@/lib/cookies'
 
 export type Direction = 'ltr' | 'rtl'
