@@ -12,53 +12,27 @@
 
 [English](./README.md) | **简体中文**
 
-基于 React + Vite 的生产级单页应用模板。点击 GitHub 仓库右上角的 **Use this template** 即可一键创建新项目。
+基于 React + Vite 的生产级单页应用模板。
 
 ## 能力清单
 
 - [x] **React 19** 内置 React Compiler
-- [x] **Vite 8**（rolldown）搭配 `tsconfigPaths` 路径别名
+- [x] **Vite 8**（rolldown）
 - [x] **TypeScript** 严格模式
-- [x] **TanStack Router** —— 文件路由、自动代码分割、devtools
-- [x] **TanStack Query** —— `QueryClient` 内联在 Provider 中，自带 401 重定向与 Axios 错误识别
-- [x] **Tailwind CSS v4** 通过官方 Vite 插件集成（CSS 优先，无需 `tailwind.config.js`）
-- [x] **Zustand** 轻量客户端状态
-- [x] **React Hook Form + Zod** 类型安全表单与校验
-- [x] **Clerk** 身份认证接入
-- [x] **Recharts** 数据可视化
-- [x] **Axios** HTTP 客户端
-- [x] **类型化环境变量** —— `src/lib/env.ts` 缺失即报错
-- [x] **ESLint** 使用 `@antfu/eslint-config`
-- [x] **Husky + lint-staged + commitlint**（Conventional Commits）
-- [x] **仅 pnpm**（`preinstall` 强制约束）
-- [x] **react-scan** 开发环境渲染诊断
+- [x] **TanStack Router** —— 文件路由
+- [x] **TanStack Query**
+- [x] **Tailwind CSS v4**
+- [x] **Zustand**
+- [x] **Axios**
+- [x] **ESLint**（`@antfu/eslint-config`）
+- [x] **Husky + lint-staged + commitlint**
+- [x] **仅 pnpm**
 
 ## 快速开始
 
 ```bash
 pnpm install
 pnpm dev
-```
-
-## 脚本
-
-| 命令 | 说明 |
-| --- | --- |
-| `pnpm dev` | 启动开发服务器 |
-| `pnpm build` | 类型检查并打包生产产物 |
-| `pnpm preview` | 本地预览生产构建 |
-| `pnpm format` | 运行 ESLint `--fix` |
-
-## 目录结构
-
-```
-src/
-  components/   # 公共组件
-  hooks/        # 自定义 hooks
-  lib/          # env、router、初始化管线
-  providers/    # 应用级 Provider（Query、Router）
-  routes/       # TanStack Router 文件路由
-  styles/       # Tailwind 入口
 ```
 
 ## 许可证

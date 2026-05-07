@@ -12,53 +12,27 @@
 
 **English** | [简体中文](./README.zh-CN.md)
 
-An opinionated React + Vite template for building production-grade SPAs. Use the **Use this template** button on GitHub to spin up a new repo in one click.
+An opinionated React + Vite template for building production-grade SPAs.
 
 ## Features
 
-- [x] **React 19** with the React Compiler enabled out of the box
-- [x] **Vite 8** (rolldown) with path aliases via `tsconfigPaths`
-- [x] **TypeScript** strict configuration
-- [x] **TanStack Router** — file-based routing with code-splitting and devtools
-- [x] **TanStack Query** — co-located `QueryClient` with 401 redirect handling and Axios error awareness
-- [x] **Tailwind CSS v4** via the official Vite plugin (CSS-first config, no `tailwind.config.js`)
-- [x] **Zustand** for lightweight client state
-- [x] **React Hook Form + Zod** for typed forms and validation
-- [x] **Clerk** authentication primitives wired in
-- [x] **Recharts** for data visualization
-- [x] **Axios** as the HTTP client
-- [x] **Typed env** via `src/lib/env.ts` (fails fast on missing keys)
-- [x] **ESLint** using `@antfu/eslint-config`
-- [x] **Husky + lint-staged + commitlint** (Conventional Commits)
-- [x] **pnpm-only** toolchain (enforced via `preinstall`)
-- [x] **react-scan** for render diagnostics in development
+- [x] **React 19** with React Compiler
+- [x] **Vite 8** (rolldown)
+- [x] **TypeScript** strict mode
+- [x] **TanStack Router** — file-based routing
+- [x] **TanStack Query**
+- [x] **Tailwind CSS v4**
+- [x] **Zustand**
+- [x] **Axios**
+- [x] **ESLint** (`@antfu/eslint-config`)
+- [x] **Husky + lint-staged + commitlint**
+- [x] **pnpm-only**
 
 ## Quick Start
 
 ```bash
 pnpm install
 pnpm dev
-```
-
-## Scripts
-
-| Command | Description |
-| --- | --- |
-| `pnpm dev` | Start the dev server |
-| `pnpm build` | Type-check and build for production |
-| `pnpm preview` | Preview the production build locally |
-| `pnpm format` | Run ESLint with `--fix` |
-
-## Project Structure
-
-```
-src/
-  components/   # Shared UI components
-  hooks/        # Custom hooks
-  lib/          # env, router, initialize pipeline
-  providers/    # App-level providers (Query, Router)
-  routes/       # TanStack Router file-based routes
-  styles/       # Tailwind entry
 ```
 
 ## License

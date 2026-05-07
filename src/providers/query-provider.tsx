@@ -14,12 +14,12 @@ export function QueryProvider({ children }: PropsWithChildren) {
     defaultOptions: {
       queries: {
         retry: (failureCount, error) => {
-          if (env.DEV)
+          if (env.MODE === 'development')
             console.log({ failureCount, error })
 
-          if (failureCount >= 0 && env.DEV)
+          if (failureCount >= 0 && env.MODE === 'development')
             return false
-          if (failureCount > 3 && env.PROD)
+          if (failureCount > 3 && env.MODE === 'production')
             return false
 
           return !(
@@ -27,7 +27,7 @@ export function QueryProvider({ children }: PropsWithChildren) {
             && [401, 403].includes(error.response?.status ?? 0)
           )
         },
-        refetchOnWindowFocus: env.PROD,
+        refetchOnWindowFocus: env.MODE === 'production',
         staleTime: 10 * 1000,
       },
     },
